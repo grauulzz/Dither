@@ -1,5 +1,3 @@
-//  for dither...
-// https://gist.github.com/naikrovek/643a9799171d20820cb9#file-gistfile1-java
 
 public class Main {
 	public static void main(String[] args) {
