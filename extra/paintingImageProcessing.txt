@@ -1,0 +1,42 @@
+public static int[][] paintRandomImage(int[][] canvas) {
+
+		Random rand = new Random();
+		for (int i = 0; i < canvas.length; i++) {
+			for (int j = 0; j < canvas[i].length; j++) {
+				int[] rgba = { rand.nextInt(256), rand.nextInt(256), rand.nextInt(256), 255 };
+				canvas[i][j] = getColorIntValFromRGBA(rgba);
+			}
+		}
+		return canvas;
+	}
+
+	public static int[][] paintRectangle(int[][] canvas, int width, int height, int rowPosition, int colPosition,
+			int color) {
+
+		for (int i = 0; i < canvas.length; i++) {
+			for (int j = 0; j < canvas[i].length; j++) {
+				if (i >= rowPosition && i <= rowPosition + width) {
+					if (j >= colPosition && j <= colPosition + height) {
+						canvas[i][j] = color;
+					}
+				}
+			}
+		}
+		return canvas;
+	}
+
+	public static int[][] generateRectangles(int[][] canvas, int numRectangles) {
+
+		Random rand = new Random();
+		for (int i = 0; i < numRectangles; i++) {
+			int randomWidth = rand.nextInt(canvas[0].length);
+			int randomHeight = rand.nextInt(canvas.length);
+			int randomRowPos = rand.nextInt(canvas.length - randomHeight);
+			int randomColPos = rand.nextInt(canvas[0].length - randomWidth);
+			int[] rgba = { rand.nextInt(256), rand.nextInt(256), rand.nextInt(256), 255 };
+			int randomColor = getColorIntValFromRGBA(rgba);
+			canvas = paintRectangle(canvas, randomWidth, randomHeight, randomRowPos, randomColPos, randomColor);
+		}
+		return canvas;
+	}
+	

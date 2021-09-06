@@ -1,0 +1,44 @@
+		/* int[][] trimmed = trimBorders(imageData, 60);
+		twoDToImage(trimmed, "./trimmed_suckinDownChilliDawgs.jpg");
+		
+
+		int[][] negative = negativeColor(imageData);
+		twoDToImage(negative, "./negative_suckinDownChilliDawgs.jpg");
+		
+
+		int[][] stretchedHImg = stretchHorizontally(imageData);
+		twoDToImage(stretchedHImg, "./stretched_suckinDownChilliDawgs.jpg");
+		
+
+		int[][] shrankVImg = shrinkVertically(imageData);
+		twoDToImage(shrankVImg, "./shrank_suckinDownChilliDawgs.jpg");
+		
+
+		int[][] invertedImg = invertImage(imageData);
+		twoDToImage(invertedImg, "./inverted_suckinDownChilliDawgs.jpg");
+		
+
+		int[][] coloredImg = colorFilter(imageData, -75, 30, -30);
+		twoDToImage(coloredImg, "./colored_suckinDownChilliDawgs.jpg");
+
+		int[][] allFilters = stretchHorizontally(shrinkVertically(colorFilter(negativeColor(trimBorders(invertImage(imageData), 50)), 200, 20, 40)));
+
+		twoDToImage(allFilters, "./allFilters_suckinDownChilliDawgs.jpg");
+		
+		
+		int[][] blankImg = new int[500][500];
+
+		int[][] randomImg = paintRandomImage(blankImg);
+
+		twoDToImage(randomImg, "./random_img.jpg");
+
+		int[] rgba = { 255, 255, 0, 255 };
+
+		int[][] rectangleImg = paintRectangle(randomImg, 200, 200, 100, 100, getColorIntValFromRGBA(rgba));
+
+		twoDToImage(rectangleImg, "./rectangle.jpg");
+
+		int[][] generatedRectangles = generateRectangles(randomImg, 1000);
+
+		twoDToImage(generatedRectangles, "./generated_rect.jpg");
+		*/

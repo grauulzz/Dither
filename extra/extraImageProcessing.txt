@@ -1,0 +1,67 @@
+public static int[][] stretchHorizontally(int[][] imageTwoD) {
+
+		int[][] manipulatedImg = new int[imageTwoD.length][imageTwoD[0].length * 2];
+		int it = 0;
+		for (int i = 0; i < imageTwoD.length; i++) {
+			for (int j = 0; j < imageTwoD[i].length; j++) {
+				it = j * 2;
+				manipulatedImg[i][it] = imageTwoD[i][j];
+				manipulatedImg[i][it + 1] = imageTwoD[i][j];
+			}
+		}
+		return manipulatedImg;
+	}
+
+	public static int[][] shrinkVertically(int[][] imageTwoD) {
+
+		int[][] manipulatedImg = new int[imageTwoD.length / 2][imageTwoD[0].length];
+		int it = 0;
+		for (int i = 0; i < imageTwoD[0].length; i++) {
+			for (int j = 0; j < imageTwoD.length-1; j += 2) {
+				manipulatedImg[j / 2][i] = imageTwoD[j][i];
+			}
+		}
+		return manipulatedImg;
+	}
+
+
+public static int[][] colorFilter(int[][] imageTwoD, int redChangeValue, int greenChangeValue,
+			int blueChangeValue) {
+
+		int[][] manipulatedImg = new int[imageTwoD.length][imageTwoD[0].length];
+		for (int i = 0; i < imageTwoD.length; i++) {
+			for (int j = 0; j < imageTwoD[i].length; j++) {
+				int[] rgba = getRGBAFromPixel(imageTwoD[i][j]);
+
+				int newRed = rgba[0] + redChangeValue;
+				int newGreen = rgba[1] + greenChangeValue;
+				int newBlue = rgba[2] + blueChangeValue;
+
+				if (newRed > 255) {
+					newRed = 255;
+				} else if (newRed < 0) {
+					newRed = 0;
+				}
+
+				if (newGreen > 255) {
+					newGreen = 255;
+				} else if (newGreen < 0) {
+					newGreen = 0;
+				}
+
+				if (newBlue > 255) {
+					newBlue = 255;
+				} else if (newBlue < 0) {
+					newBlue = 0;
+				}
+
+				rgba[0] = newRed;
+				rgba[1] = newGreen;
+				rgba[2] = newBlue;
+
+				manipulatedImg[i][j] = getColorIntValFromRGBA(rgba);
+			}
+		}
+		return manipulatedImg;
+	}
+
